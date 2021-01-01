@@ -1,0 +1,94 @@
+---
+title: "W6_Loops_Functions"
+author: "Jakub Raszka"
+date: "26 10 2020"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+## Loading data, packages
+```{r}
+## packages
+pacman::p_load(ggplot2, tidyverse, gapminder, psych)
+
+## data
+gapminder <- gapminder
+
+
+```
+
+
+## 1: Function
+
+Define a defensive function that calculates the Gross Domestic Product of a nation from the data available in the gapminder dataset. Using that function, calculate the GDP of Denmark in the following years: 1967, 1977, 1987, 1997, 2007, and 2017.
+```{r}
+## defining function
+gdp_calculator <- function(nation, year, population, gdp_per_capita){
+  GDP <- population * gdp_per_capita
+  
+  return(GDP)
+}
+
+## creating a dataframe of data only from Denmark and for desired years
+denmark_7 <- gapminder %>% 
+  filter(country == "Denmark") %>% 
+  filter(grepl("\\d{2}[1,6,7,8,9,0]7", year))
+
+## upon close inspection, there is no data for year 2017!!
+
+## calculating gdp of country
+denmark_7$gdp_country <- gdp_calculator(denmark_7$country, denmark_7$year, denmark_7$pop, denmark_7$gdpPercap)
+
+denmark_7
+```
+
+
+## 2: Loop
+
+Write a script that loops over each country in the gapminder dataset, tests whether the country starts with a ‘B’ , and print out whether the life expectancy is smaller than 50, between 50 and 70, or greater than 70.
+
+```{r}
+## a loop prints whether a country name start with B or not, but what's the point??
+
+# creating a vector with unique country name (to prevent repetition)
+country_name <- sort(unique(as.character(gapminder$country)), decreasing =F)
+
+# a loop 
+## to prevent loops output to be too long, I restricted the conditon only to first 20 countries. However, it can be easily undone by deleting [1:20] after country name
+for (i in 1:length(country_name[1:20])){
+  
+  if(grepl("^B", country_name[i]) == TRUE){
+  print(paste(country_name[i], " starts with B."))
+  } else (print(paste(country_name[i], " does not start with B.")))
+
+}
+
+## creating an empty vector to store results
+gapminder$lifeexp_task <- c("l")
+
+
+## printing a message in what range life expectancy is
+
+for (i in 1:nrow(gapminder)){
+  
+  if(gapminder$lifeExp[i]< 50){
+  
+    gapminder$lifeexp_task[i] <- "The life expectancy is smaller than 50"
+    
+  } else if (gapminder$lifeExp[i]>= 50 & gapminder$lifeExp[i] <= 70){
+   
+    gapminder$lifeexp_task[i] <- "The life expectancy is between  50 and 70."
+  
+    } else(gapminder$lifeexp_task[i] <- "The life expectancy is larger than 70.")
+
+}
+
+gapminder[10:20,c(4,7)]
+```
+
+
+
+

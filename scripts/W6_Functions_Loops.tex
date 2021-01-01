@@ -1,0 +1,258 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={W6\_Loops\_Functions},
+  pdfauthor={Jakub Raszka},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{W6\_Loops\_Functions}
+\author{Jakub Raszka}
+\date{26 10 2020}
+
+\begin{document}
+\maketitle
+
+\hypertarget{loading-data-packages}{%
+\subsection{Loading data, packages}\label{loading-data-packages}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## packages}
+\NormalTok{pacman}\OperatorTok{::}\KeywordTok{p_load}\NormalTok{(ggplot2, tidyverse, gapminder, psych)}
+
+\CommentTok{## data}
+\NormalTok{gapminder <-}\StringTok{ }\NormalTok{gapminder}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{function}{%
+\subsection{1: Function}\label{function}}
+
+Define a defensive function that calculates the Gross Domestic Product
+of a nation from the data available in the gapminder dataset. Using that
+function, calculate the GDP of Denmark in the following years: 1967,
+1977, 1987, 1997, 2007, and 2017.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## defining function}
+\NormalTok{gdp_calculator <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(nation, year, population, gdp_per_capita)\{}
+\NormalTok{  GDP <-}\StringTok{ }\NormalTok{population }\OperatorTok{*}\StringTok{ }\NormalTok{gdp_per_capita}
+  
+  \KeywordTok{return}\NormalTok{(GDP)}
+\NormalTok{\}}
+
+\CommentTok{## creating a dataframe of data only from Denmark and for desired years}
+\NormalTok{denmark_}\DecValTok{7}\NormalTok{ <-}\StringTok{ }\NormalTok{gapminder }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(country }\OperatorTok{==}\StringTok{ "Denmark"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}\textbackslash{}}\StringTok{d\{2\}[1,6,7,8,9,0]7"}\NormalTok{, year))}
+
+\CommentTok{## upon close inspection, there is no data for year 2017!!}
+
+\CommentTok{## calculating gdp of country}
+\NormalTok{denmark_}\DecValTok{7}\OperatorTok{$}\NormalTok{gdp_country <-}\StringTok{ }\KeywordTok{gdp_calculator}\NormalTok{(denmark_}\DecValTok{7}\OperatorTok{$}\NormalTok{country, denmark_}\DecValTok{7}\OperatorTok{$}\NormalTok{year, denmark_}\DecValTok{7}\OperatorTok{$}\NormalTok{pop, denmark_}\DecValTok{7}\OperatorTok{$}\NormalTok{gdpPercap)}
+
+\NormalTok{denmark_}\DecValTok{7}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 7
+##   country continent  year lifeExp     pop gdpPercap   gdp_country
+##   <fct>   <fct>     <int>   <dbl>   <int>     <dbl>         <dbl>
+## 1 Denmark Europe     1967    73.0 4838800    15937.  77116977700.
+## 2 Denmark Europe     1977    74.7 5088419    20423. 103920280028.
+## 3 Denmark Europe     1987    74.8 5127024    25116. 128771236166.
+## 4 Denmark Europe     1997    76.1 5283663    29804. 157476118456.
+## 5 Denmark Europe     2007    78.3 5468120    35278. 192906627081.
+\end{verbatim}
+
+\hypertarget{loop}{%
+\subsection{2: Loop}\label{loop}}
+
+Write a script that loops over each country in the gapminder dataset,
+tests whether the country starts with a `B' , and print out whether the
+life expectancy is smaller than 50, between 50 and 70, or greater than
+70.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## a loop prints whether a country name start with B or not, but what's the point??}
+
+\CommentTok{# creating a vector with unique country name (to prevent repetition)}
+\NormalTok{country_name <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(}\KeywordTok{unique}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(gapminder}\OperatorTok{$}\NormalTok{country)), }\DataTypeTok{decreasing =}\NormalTok{F)}
+
+\CommentTok{# a loop }
+\CommentTok{## to prevent loops output to be too long, I restricted the conditon only to first 20 countries. However, it can be easily undone by deleting [1:20] after country name}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(country_name[}\DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{]))\{}
+  
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"^B"}\NormalTok{, country_name[i]) }\OperatorTok{==}\StringTok{ }\OtherTok{TRUE}\NormalTok{)\{}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{paste}\NormalTok{(country_name[i], }\StringTok{" starts with B."}\NormalTok{))}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ (}\KeywordTok{print}\NormalTok{(}\KeywordTok{paste}\NormalTok{(country_name[i], }\StringTok{" does not start with B."}\NormalTok{)))}
+
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Afghanistan  does not start with B."
+## [1] "Albania  does not start with B."
+## [1] "Algeria  does not start with B."
+## [1] "Angola  does not start with B."
+## [1] "Argentina  does not start with B."
+## [1] "Australia  does not start with B."
+## [1] "Austria  does not start with B."
+## [1] "Bahrain  starts with B."
+## [1] "Bangladesh  starts with B."
+## [1] "Belgium  starts with B."
+## [1] "Benin  starts with B."
+## [1] "Bolivia  starts with B."
+## [1] "Bosnia and Herzegovina  starts with B."
+## [1] "Botswana  starts with B."
+## [1] "Brazil  starts with B."
+## [1] "Bulgaria  starts with B."
+## [1] "Burkina Faso  starts with B."
+## [1] "Burundi  starts with B."
+## [1] "Cambodia  does not start with B."
+## [1] "Cameroon  does not start with B."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## creating an empty vector to store results}
+\NormalTok{gapminder}\OperatorTok{$}\NormalTok{lifeexp_task <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{)}
+
+
+\CommentTok{## printing a message in what range life expectancy is}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(gapminder))\{}
+  
+  \ControlFlowTok{if}\NormalTok{(gapminder}\OperatorTok{$}\NormalTok{lifeExp[i]}\OperatorTok{<}\StringTok{ }\DecValTok{50}\NormalTok{)\{}
+  
+\NormalTok{    gapminder}\OperatorTok{$}\NormalTok{lifeexp_task[i] <-}\StringTok{ "The life expectancy is smaller than 50"}
+    
+\NormalTok{  \} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (gapminder}\OperatorTok{$}\NormalTok{lifeExp[i]}\OperatorTok{>=}\StringTok{ }\DecValTok{50} \OperatorTok{&}\StringTok{ }\NormalTok{gapminder}\OperatorTok{$}\NormalTok{lifeExp[i] }\OperatorTok{<=}\StringTok{ }\DecValTok{70}\NormalTok{)\{}
+   
+\NormalTok{    gapminder}\OperatorTok{$}\NormalTok{lifeexp_task[i] <-}\StringTok{ "The life expectancy is between  50 and 70."}
+  
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{(gapminder}\OperatorTok{$}\NormalTok{lifeexp_task[i] <-}\StringTok{ "The life expectancy is larger than 70."}\NormalTok{)}
+
+\NormalTok{\}}
+
+\NormalTok{gapminder[}\DecValTok{10}\OperatorTok{:}\DecValTok{20}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{7}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 11 x 2
+##    lifeExp lifeexp_task                              
+##      <dbl> <chr>                                     
+##  1    41.8 The life expectancy is smaller than 50    
+##  2    42.1 The life expectancy is smaller than 50    
+##  3    43.8 The life expectancy is smaller than 50    
+##  4    55.2 The life expectancy is between  50 and 70.
+##  5    59.3 The life expectancy is between  50 and 70.
+##  6    64.8 The life expectancy is between  50 and 70.
+##  7    66.2 The life expectancy is between  50 and 70.
+##  8    67.7 The life expectancy is between  50 and 70.
+##  9    68.9 The life expectancy is between  50 and 70.
+## 10    70.4 The life expectancy is larger than 70.    
+## 11    72   The life expectancy is larger than 70.
+\end{verbatim}
+
+\end{document}
